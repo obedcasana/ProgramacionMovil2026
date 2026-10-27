@@ -1,21 +1,30 @@
 import { StatusBar } from 'expo-status-bar';
-import {Button, StyleSheet, Text, View } from 'react-native';
+import { Button, StyleSheet, Text, View } from 'react-native';
+import CustomButton from './components/CustomButton';
 
 export default function App() {
   return (
     <View style={styles.container}>
       <Text>Open up App.tsx to start working on your app!</Text>
-      <Button title="My Button"/>
-      <StatusBar style="auto" />
+      <View style ={styles.buttonsContainer}>
+          <CustomButton title = "My App Button #2"/>
+          <CustomButton title = "My App Button"/>
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex:1,
+    flexDirection: 'column-reverse',
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
   },
+  buttonsContainer:{
+    flexDirection: 'column-reverse',
+    padding: 15,
+    backgroundColor: 'pink'
+  }
 });
