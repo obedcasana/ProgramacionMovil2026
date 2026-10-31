@@ -18,22 +18,24 @@ type CustomButtonProps = {
 export default function CustomButton({title, onPressButton, variant = 'principal',tamaño = 'mediano', anchoCompleto = false, inhabilitado = false, enProceso = false,}: CustomButtonProps){
     const estaBloqueado = inhabilitado || enProceso;
     return(
+        /*Si anchoCompleto es verdadero, aplica el estilo, sino no. Mismo caso con estaBloqueado.*/
         <TouchableOpacity 
           style={[
             styles.button,
             styles[variant],
             styles[tamaño],
-            //Si anchoCompleto es verdadero, aplica el estilo, sino no. Mismo caso con estaBloqueado.
             anchoCompleto && styles.anchoCompleto,
             estaBloqueado && styles.inhabilitado,
           ]} 
           onPress={onPressButton}
           disabled={estaBloqueado}
         >
-            //Si enProceso es verdadero, borra el texto y dibuja el circulo de carga.
+            
             {enProceso ? (
               <ActivityIndicator color={variant === 'principal' ? '#fff' : '#D97706'} />
-            ) : (
+            ) 
+            /*Si enProceso es verdadero, borra el texto y dibuja el circulo de carga.*/
+            : (
                 //Si enProceso es falso, muestra el texto normal del botón con sus estilos correspondientes enviados al CustomButton (variant y tamaño).
               <Text style={[styles.buttonText, styles[`text_${variant}`], styles[`text_${tamaño}`]]}>
                 {title}

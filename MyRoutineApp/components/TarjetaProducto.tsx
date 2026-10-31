@@ -18,7 +18,7 @@ export default function TarjetaProducto({ producto, onSeleccionar }: TarjetaProd
                 <Text style={styles.nombre}>{producto.nombre}</Text>
                 <Text style={styles.descripcion}>{producto.observaciones}</Text>
                 
-                //Validamos si el producto tiene descuento para hacer cálculos 
+                {/*Validamos si el producto tiene descuento para hacer cálculos*/}
                 {tieneDescuento ? (
                     <View style={styles.precioContainer}>
                         <Text style={styles.precioTachado}>
@@ -37,7 +37,7 @@ export default function TarjetaProducto({ producto, onSeleccionar }: TarjetaProd
             
             <View style={styles.buttonContainer}>
                 <CustomButton 
-                    title="Ver Detalle" 
+                    title="Agregar" 
                     variant="alternativa"
                     tamaño="pequeño"
                     onPressButton={() => onSeleccionar(producto)}

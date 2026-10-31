@@ -12,12 +12,12 @@ export default function EncabezadoSeccion({ titulo, cantidad, onVerTodo }: Encab
         <View style={styles.container}>
             <View style={styles.tituloContainer}>
                 <Text style={styles.titulo}>{titulo}</Text>
-                //Evalúa si la variable cantidad tiene un valor asignado, si lo tiene, dibuja un componente de texto con el número entre parentesis.
+                {/*Evalúa si la variable cantidad tiene un valor asignado, si lo tiene, dibuja un componente de texto con el número entre parentesis.*/}
                 {cantidad !== undefined && (
                     <Text style={styles.cantidad}>({cantidad})</Text>
                 )}
             </View>
-            //Evalúa si le enviaron una función onVerTodo, si la tiene, dibuja el botón interactivo, sino no lo muestra.
+            {/*Evalúa si le enviaron una función onVerTodo, si la tiene, dibuja el botón interactivo, sino no lo muestra.*/}
             {onVerTodo && (
                 <TouchableOpacity onPress={onVerTodo}>
                     <Text style={styles.enlaceVerTodo}>Ver todo</Text>
