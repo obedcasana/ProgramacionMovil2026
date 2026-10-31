@@ -45,3 +45,8 @@ R/ 1. manejarSeleccionMenu (Línea 11) - Recibe un parámetro producto y devuelv
 R/-Se debería modificar App para definir la nueva función manejadora de eventos que controle el mensaje de alerta al hacer clic en "Aprovechar". 
 -Se debería agregar un nuevo bloque de renderizado en App utilizando el componente EncabezadoSeccion para mapear los productos en promoción.
 -Se debería agregar un tipado en el archivo types/menu.ts en el caso de que alguna propiedad de promoción se requiera.
+
+* **E1:**
+R/ Genera error al momento de querer asignar ese valor en el arreglo, en la línea 21 del menu.ts, esto se debe a que esta categoría de producto no estaba definida dentro del tipado de CategoríaProducto.
+* **E2:**
+R/ Genera error al momento de querer dejar de esta manera el producto, dice que el campo "nombre" no se encuentra dentro del producto, pero que está definido como obligatorio en el tipado de las props. No ocurre lo mismo con los que no son obligatorios, puesto que el sistema las define automáticamente como "undefined" al no pasarlas. 
