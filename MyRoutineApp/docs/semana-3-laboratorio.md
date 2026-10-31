@@ -21,8 +21,27 @@ const estaBloqueado = inhabilitado || enProceso;
 Puesto que la constante estaBloqueado evalúa con el OR si cualquiera de los dos flags es verdadero. Al pasarle ese resultado a la prop disabled del TouchableOpacity, el sistema bloquea a nivel tactil al componente. Eso significa que la función onPressButton nunca se ejecuta. 
 
 Así mismo, bajar la opacidad del botón lo único que haría sería un cambio estetico y visual, no bloquearía los eventos táctiles, lo cual haría que el botón siga siendo funcional. 
-* **P2:** [Pendiente]
-* **P3:** [Pendiente]
-* **P4:** [Pendiente]
-* **P5:** [Pendiente]
-* **P6:** [Pendiente]
+* **P2:**
+R/ La lógica de lo que debe suceder al interactuar con un favorito se define con la función:
+manejarPedidoFavorito(producto)
+en la línea 15 de App.tsx y el evento fluye de la siguiente manera:
+App.tsx recorre el arreglo mediante .map() y le entrega la función al componente a través de la prop onSeleccionar={manejarPedidoFavorito} -> El componente TarjetaProducto recibe la función y la vincula al evento onPress del contener TouchableOpacity. -> Cuando el usuario presiona la tarjeta del favorito, el componente ejecuta la función recibida.
+La ejecución culmina en App.tsx nuevamente, donde se ejecuta el alert con el texto correspondiente. 
+
+* **P3:**
+R/ El cálculo y el formato de los precios se definen y procesan en el archivo de utilidades utils/formatoPrecio.ts, así mismo para definir condicionalmente el formato se hace en TarjetaProducto.tsx en la línea 18 aproximadamente.
+Si se hiciera un cambio en la moneda únicamente requeriría el cambio de la moneda en utils/formatoPrecio.ts actualizando la variable de moneda.
+Si la lógica matemática y las cadenas de formato estuvieran en TarjetaProducto.tsx implicaría que se modifique TarjetaProducto.tsx cada vez que se cambie la moneda o se agregue cambie regla de negocio.
+* **P4:** 
+R/ El componente EncabezadoSeccion decide renderizar la etiqueta "Ver todo" si se envía la prop correspondiente en la línea 21 de EncabezadoSeccion.tsx. 
+La prop que lo controla es onVerTodo y es opcional porque no todas las secciones del menú necesitan mostrar un botón "Ver todo".
+* **P5:** 
+R/ 1. manejarSeleccionMenu (Línea 11) - Recibe un parámetro producto y devuelve void, está en app porque maneja el flujo de la aplicación y si estuviera dentro de un componente, este podría estar atado a alguna regla de negocios haciendola no-reutilizable.
+2. manejarPedidoFavorito (Línea 15) - Mismo caso que anterior.
+3. manejarVerTodo (Línea 19)- No recibe parametros y devuelve void, no está dentro de un componente porque las acciones de navegación deberían estar dentro de la capa de App.
+4. manejarConfirmarPedido (Línea 23)- No recibe parametros y devuelve void, no está dentro de un componente porque el manejo de esta respuesta debe residir en el contenedor principal de App el cual debería centralizar el estatos de los pedidos.
+5. manejarVaciarPedido (Línea 27)- No recibe parametros y devuelve void, no está dentro de un componente porque modifica el estado general de la orden en la aplicación, de la misma forma que ConfirmarPedido.
+* **P6:** 
+R/-Se debería modificar App para definir la nueva función manejadora de eventos que controle el mensaje de alerta al hacer clic en "Aprovechar". 
+-Se debería agregar un nuevo bloque de renderizado en App utilizando el componente EncabezadoSeccion para mapear los productos en promoción.
+-Se debería agregar un tipado en el archivo types/menu.ts en el caso de que alguna propiedad de promoción se requiera.
