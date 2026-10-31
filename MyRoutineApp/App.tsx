@@ -6,7 +6,7 @@ import TarjetaEjercicio from './components/TarjetaEjercicio';
 export default function App() {
   return (
     <SafeAreaView style={styles.areaSegura}>
-      {/* ScrollView permite deslizar la pantalla si el contenido es más alto que el dispositivo */}
+      {/* ScrollView permite deslizar la pantalla si el contenido es más alto que el dispositivo y desactivamos la barrita de la derecha que muestra el scroll*/}
       <ScrollView contentContainerStyle={styles.contenedorScroll} showsVerticalScrollIndicator={false}>
         
         <Encabezado 
@@ -30,6 +30,7 @@ export default function App() {
         />
 
         <TarjetaEjercicio 
+          nombre="Remo con barra"
           series={4}  
           repeticiones={12} 
           grupoMuscular="Espalda" 
