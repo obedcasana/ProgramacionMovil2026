@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { Producto } from '../types/menu'; // Ajusta la ruta si es necesario
+import { Producto } from '../types/menu';
 import CustomButton from './CustomButton';
 
 type TarjetaProductoProps = {
@@ -9,12 +9,30 @@ type TarjetaProductoProps = {
 };
 
 export default function TarjetaProducto({ producto, onSeleccionar }: TarjetaProductoProps) {
+    // Validamos si el producto tiene descuento para mostrar el formato especial
+    const tieneDescuento = Boolean(producto.descuento && producto.descuento > 0);
+
     return (
         <View style={styles.card}>
             <View style={styles.infoContainer}>
                 <Text style={styles.nombre}>{producto.nombre}</Text>
                 <Text style={styles.descripcion}>{producto.observaciones}</Text>
-                <Text style={styles.precio}>L. {producto.precio.toFixed(2)}</Text>
+                
+                //Validamos si el producto tiene descuento para hacer cálculos 
+                {tieneDescuento ? (
+                    <View style={styles.precioContainer}>
+                        <Text style={styles.precioTachado}>
+                            {producto.precioOriginalFormateado}
+                        </Text>
+                        <Text style={styles.precioFinal}>
+                            {producto.precioFinalFormateado}
+                        </Text>
+                    </View>
+                ) : (
+                    <Text style={styles.precio}>
+                        {producto.precioOriginalFormateado || `L. ${producto.precio.toFixed(2)}`}
+                    </Text>
+                )}
             </View>
             
             <View style={styles.buttonContainer}>
@@ -62,6 +80,21 @@ const styles = StyleSheet.create({
         fontSize: 16,
         fontWeight: '600',
         color: '#D97706',
+    },
+    precioContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        gap: 8,
+    },
+    precioTachado: {
+        fontSize: 14,
+        color: '#9CA3AF',
+        textDecorationLine: 'line-through',
+    },
+    precioFinal: {
+        fontSize: 16,
+        fontWeight: '700',
+        color: '#DC2626',
     },
     buttonContainer: {
         flexDirection: 'row',

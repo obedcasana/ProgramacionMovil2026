@@ -10,6 +10,8 @@ export type Producto = {
   observaciones?: string;
   esNuevo?: boolean;
   descuento?: number;
+  precioOriginalFormateado?: string;
+  precioFinalFormateado?: string;
 };
 
 export const MENU_DEL_DIA: Producto[] = [
