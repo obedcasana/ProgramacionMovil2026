@@ -50,3 +50,6 @@ R/-Se debería modificar App para definir la nueva función manejadora de evento
 R/ Genera error al momento de querer asignar ese valor en el arreglo, en la línea 21 del menu.ts, esto se debe a que esta categoría de producto no estaba definida dentro del tipado de CategoríaProducto.
 * **E2:**
 R/ Genera error al momento de querer dejar de esta manera el producto, dice que el campo "nombre" no se encuentra dentro del producto, pero que está definido como obligatorio en el tipado de las props. No ocurre lo mismo con los que no son obligatorios, puesto que el sistema las define automáticamente como "undefined" al no pasarlas. 
+* **E3:**
+R/ Property 'producto' is missing in type '{ onSeleccionar: (producto: Producto) => void; }' but required in type 'TarjetaProductoProps'.
+Se eliminó la prop obligatoria producto, devolviendo el mismo erro que antes, indicando que la prop no se encuentra dentro del producto, pero que está definido como obligaotrio en el tipado. En este caso, se definió como obligatorio este campo, pues el objetivo de TarjetaProducto ese renderizar la información de un elemento del menú, si este producto no se enviara, provocaría fallos o pantallas vacías en el mejor de los casos.
