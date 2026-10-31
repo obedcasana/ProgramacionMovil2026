@@ -30,8 +30,7 @@ export default function App() {
         />
 
         <TarjetaEjercicio 
-          nombre="Remo con barra" 
-          series={4} 
+          series={4}  
           repeticiones={12} 
           grupoMuscular="Espalda" 
           destacado={true}
