@@ -3,29 +3,34 @@ import { Button, StyleSheet, Text, View } from 'react-native';
 import CustomButton from './components/CustomButton';
 
 export default function App() {
-  //Métodos que se enviarán eventualmente en el return de esta función según se requiera. 
-  const handleOnPressPrimaryButton = () =>{
-    console.log("Imprimiendo desde boton 1")
+
+  const handleOnPressPrimaryButton = () => {
+    console.log("Imprimiendo desde boton 1");
   }
-  //Métodos que se enviarán eventualmente en el return de esta función según se requiera. 
-  const handleOnPressSecondaryButton = () =>{
-    console.log("Imprimiendo desde boton 2")
+
+  const handleOnPressSecondaryButton = () => {
+    console.log("Imprimiendo desde boton 2");
+  }
+   const handleOnPressTertiaryButton = () => {
+    console.log("Imprimiendo desde boton 3");
   }
   return (
     <View style={styles.container}>
+
       <Text>Open up App.tsx to start working on your app!</Text>
-      //Se asigna el tipo de estilo buttonsContainer definida previamente en la StyleSheet
       <View style ={styles.buttonsContainer}>
-          <CustomButton title = "My App Button #1" onPressButton={handleOnPressPrimaryButton}/>
-          <CustomButton title = "My App Button #2" onPressButton={handleOnPressSecondaryButton}/>
+          <CustomButton title = "My App Button" onPressButton={handleOnPressPrimaryButton} />
+          <CustomButton title = "My App Button #2" onPressButton={handleOnPressSecondaryButton} variant='secondary'/>
+          <CustomButton title = "My App Button #3" onPressButton={handleOnPressTertiaryButton} variant='tertiary' disabled />
       </View>
     </View>
   );
 }
-//Se crean diferentes tipos de estilo en la hoja de estilo.
+
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#fff',
+    marginTop: 50,
+    backgroundColor: '#b6a8e4',
     alignItems: 'center',
   },
   buttonsContainer:{
