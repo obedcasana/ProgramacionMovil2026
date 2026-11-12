@@ -24,10 +24,16 @@ export default function App() {
 
       <Text>Open up App.tsx to start working on your app!</Text>
       <CustomInput  
+        onChangeText={setEmail}
+        value={email}
+        placeholder='Correo'
+        type='email'
+        />
+      <CustomInput  
         onChangeText={setPassword}
         value={password}
         placeholder='Contraseña'
-        
+        type='password'
         />
       <View style ={styles.buttonsContainer}>
           <CustomButton title = "My App Button" onPressButton={handleOnPressPrimaryButton} />
