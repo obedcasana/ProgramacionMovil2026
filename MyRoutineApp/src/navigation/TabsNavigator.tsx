@@ -19,7 +19,7 @@ export const TabsNavigator = () => {
         name="Home" 
         component={HomeScreen} 
         options={{
-          title: "Mi Perfil",
+          title: "Home",
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="home" size={size} color={color} />
           ),
@@ -29,7 +29,7 @@ export const TabsNavigator = () => {
         name="Profile" 
         component={ProfileScreen} 
         options={{
-          title: "Mi Perfil",
+          title: "Perfil",
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="person" size={size} color={color} />
           ),
@@ -39,7 +39,7 @@ export const TabsNavigator = () => {
         name="Settings" 
         component={SettingsScreen} 
         options={{
-          title: "Mi Perfil",
+          title: "Ajustes",
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="settings" size={size} color={color} />
           ),
